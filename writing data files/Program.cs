@@ -16,7 +16,7 @@ namespace writing_data_files
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new friendFile());
         }
     }
 }
