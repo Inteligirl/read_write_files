@@ -32,6 +32,7 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.writeNameButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.addTextButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // friendLabel
@@ -52,7 +53,7 @@
             // 
             // writeNameButton
             // 
-            this.writeNameButton.Location = new System.Drawing.Point(85, 70);
+            this.writeNameButton.Location = new System.Drawing.Point(12, 207);
             this.writeNameButton.Name = "writeNameButton";
             this.writeNameButton.Size = new System.Drawing.Size(75, 23);
             this.writeNameButton.TabIndex = 2;
@@ -62,7 +63,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(184, 70);
+            this.exitButton.Location = new System.Drawing.Point(215, 207);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 3;
@@ -70,12 +71,23 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // addTextButton
+            // 
+            this.addTextButton.Location = new System.Drawing.Point(117, 207);
+            this.addTextButton.Name = "addTextButton";
+            this.addTextButton.Size = new System.Drawing.Size(75, 23);
+            this.addTextButton.TabIndex = 4;
+            this.addTextButton.Text = "A&dd Text";
+            this.addTextButton.UseVisualStyleBackColor = true;
+            this.addTextButton.Click += new System.EventHandler(this.addTextButton_Click);
+            // 
             // friendFile
             // 
             this.AcceptButton = this.writeNameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 117);
+            this.ClientSize = new System.Drawing.Size(379, 265);
+            this.Controls.Add(this.addTextButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.writeNameButton);
             this.Controls.Add(this.nameTextBox);
@@ -93,6 +105,7 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button writeNameButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button addTextButton;
     }
 }
 

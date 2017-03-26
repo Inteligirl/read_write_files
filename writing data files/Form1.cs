@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.IO;        //for using stream read write
 
 namespace writing_data_files
 {
@@ -27,19 +27,64 @@ namespace writing_data_files
         {
             try
             {
-                StreamWriter outputFile;
+                //declare streamwriter variable named outputFile
+                StreamWriter outputFile; 
+
+                //var = method of object with argument of file name. creates file
                 outputFile = File.CreateText("friends.txt");
 
+                //writes the contents of nameTextBox to file
                 outputFile.WriteLine(nameTextBox.Text);
 
+                //close file
                 outputFile.Close();
 
+                //tell user info
                 MessageBox.Show("The name was written.");
+
+                //clear text box
+                nameTextBox.Text = "";
+
+                //reset focus to nameTextBox
+                nameTextBox.Focus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void addTextButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //declare streamwriter variable named outputFile
+                StreamWriter outputFile;
+
+                //var = method of object with argument of file name. creates file
+                outputFile = File.AppendText("friends.txt");
+
+                //writes the contents of nameTextBox to file
+                outputFile.WriteLine(nameTextBox.Text);
+
+                //close file
+                outputFile.Close();
+
+                //tell user info
+                MessageBox.Show("The name was written.");
+
+                //clear text box
+                nameTextBox.Text = "";
+
+                //reset focus to nameTextBox
+                nameTextBox.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
+
