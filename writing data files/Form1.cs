@@ -99,10 +99,13 @@ namespace writing_data_files
                 //open file and get a StreamReader object.
                 inputFile = File.OpenText("friends.txt");
 
+                //loop to read until end of file
+                while (!inputFile.EndOfStream) { 
+
                 //read and display the name
                 fileData = inputFile.ReadLine();
-                viewFileLabel.Text = fileData;
-
+                viewFileLabel.Text += " " + fileData;
+            }
                 //close the file
                 inputFile.Close();
 
