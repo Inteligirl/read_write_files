@@ -33,6 +33,9 @@
             this.writeNameButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.addTextButton = new System.Windows.Forms.Button();
+            this.openFileButton = new System.Windows.Forms.Button();
+            this.viewFileLabel = new System.Windows.Forms.Label();
+            this.fileDisplayLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // friendLabel
@@ -55,15 +58,15 @@
             // 
             this.writeNameButton.Location = new System.Drawing.Point(12, 207);
             this.writeNameButton.Name = "writeNameButton";
-            this.writeNameButton.Size = new System.Drawing.Size(75, 23);
+            this.writeNameButton.Size = new System.Drawing.Size(75, 46);
             this.writeNameButton.TabIndex = 2;
-            this.writeNameButton.Text = "&Write Name";
+            this.writeNameButton.Text = "&New File with Text";
             this.writeNameButton.UseVisualStyleBackColor = true;
             this.writeNameButton.Click += new System.EventHandler(this.writeNameButton_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(215, 207);
+            this.exitButton.Location = new System.Drawing.Point(280, 207);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 3;
@@ -73,13 +76,41 @@
             // 
             // addTextButton
             // 
-            this.addTextButton.Location = new System.Drawing.Point(117, 207);
+            this.addTextButton.Location = new System.Drawing.Point(107, 207);
             this.addTextButton.Name = "addTextButton";
-            this.addTextButton.Size = new System.Drawing.Size(75, 23);
+            this.addTextButton.Size = new System.Drawing.Size(75, 46);
             this.addTextButton.TabIndex = 4;
-            this.addTextButton.Text = "A&dd Text";
+            this.addTextButton.Text = "A&dd Text to File";
             this.addTextButton.UseVisualStyleBackColor = true;
             this.addTextButton.Click += new System.EventHandler(this.addTextButton_Click);
+            // 
+            // openFileButton
+            // 
+            this.openFileButton.Location = new System.Drawing.Point(198, 207);
+            this.openFileButton.Name = "openFileButton";
+            this.openFileButton.Size = new System.Drawing.Size(75, 46);
+            this.openFileButton.TabIndex = 5;
+            this.openFileButton.Text = "Open Previous File";
+            this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
+            // 
+            // viewFileLabel
+            // 
+            this.viewFileLabel.BackColor = System.Drawing.Color.White;
+            this.viewFileLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.viewFileLabel.Location = new System.Drawing.Point(124, 65);
+            this.viewFileLabel.Name = "viewFileLabel";
+            this.viewFileLabel.Size = new System.Drawing.Size(199, 87);
+            this.viewFileLabel.TabIndex = 6;
+            // 
+            // fileDisplayLabel
+            // 
+            this.fileDisplayLabel.AutoSize = true;
+            this.fileDisplayLabel.Location = new System.Drawing.Point(12, 65);
+            this.fileDisplayLabel.Name = "fileDisplayLabel";
+            this.fileDisplayLabel.Size = new System.Drawing.Size(83, 13);
+            this.fileDisplayLabel.TabIndex = 7;
+            this.fileDisplayLabel.Text = "Contents of File:";
             // 
             // friendFile
             // 
@@ -87,6 +118,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 265);
+            this.Controls.Add(this.fileDisplayLabel);
+            this.Controls.Add(this.viewFileLabel);
+            this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.addTextButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.writeNameButton);
@@ -106,6 +140,9 @@
         private System.Windows.Forms.Button writeNameButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button addTextButton;
+        private System.Windows.Forms.Button openFileButton;
+        private System.Windows.Forms.Label viewFileLabel;
+        private System.Windows.Forms.Label fileDisplayLabel;
     }
 }
 

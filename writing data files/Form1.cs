@@ -32,6 +32,8 @@ namespace writing_data_files
 
                 //var = method of object with argument of file name. creates file
                 outputFile = File.CreateText("friends.txt");
+                //if passing file location as argument in create method
+                //use outputFile = File.CreateText(@"C:\Users\Tammy\Documents\friends.txt");
 
                 //writes the contents of nameTextBox to file
                 outputFile.WriteLine(nameTextBox.Text);
@@ -85,6 +87,33 @@ namespace writing_data_files
             }
         }
 
+        private void openFileButton_Click(object sender, EventArgs e)
+        {
+            try
+            { //declare a variable to hold an item read from the file.
+                string fileData;
+
+                //Declare a StreamReader variable
+                StreamReader inputFile;
+
+                //open file and get a StreamReader object.
+                inputFile = File.OpenText("friends.txt");
+
+                //read and display the name
+                fileData = inputFile.ReadLine();
+                viewFileLabel.Text = fileData;
+
+                //close the file
+                inputFile.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+                    
+                    }
+        }
     }
-}
+
 
