@@ -36,6 +36,8 @@
             this.openFileButton = new System.Windows.Forms.Button();
             this.viewFileLabel = new System.Windows.Forms.Label();
             this.fileDisplayLabel = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openDialogButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // friendLabel
@@ -56,7 +58,7 @@
             // 
             // writeNameButton
             // 
-            this.writeNameButton.Location = new System.Drawing.Point(12, 207);
+            this.writeNameButton.Location = new System.Drawing.Point(15, 125);
             this.writeNameButton.Name = "writeNameButton";
             this.writeNameButton.Size = new System.Drawing.Size(75, 46);
             this.writeNameButton.TabIndex = 2;
@@ -66,7 +68,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(280, 207);
+            this.exitButton.Location = new System.Drawing.Point(292, 230);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 3;
@@ -76,7 +78,7 @@
             // 
             // addTextButton
             // 
-            this.addTextButton.Location = new System.Drawing.Point(107, 207);
+            this.addTextButton.Location = new System.Drawing.Point(96, 125);
             this.addTextButton.Name = "addTextButton";
             this.addTextButton.Size = new System.Drawing.Size(75, 46);
             this.addTextButton.TabIndex = 4;
@@ -86,11 +88,11 @@
             // 
             // openFileButton
             // 
-            this.openFileButton.Location = new System.Drawing.Point(198, 207);
+            this.openFileButton.Location = new System.Drawing.Point(177, 125);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(75, 46);
             this.openFileButton.TabIndex = 5;
-            this.openFileButton.Text = "Open Previous File";
+            this.openFileButton.Text = "Open &Previous File";
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
             // 
@@ -100,7 +102,7 @@
             this.viewFileLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.viewFileLabel.Location = new System.Drawing.Point(124, 65);
             this.viewFileLabel.Name = "viewFileLabel";
-            this.viewFileLabel.Size = new System.Drawing.Size(199, 87);
+            this.viewFileLabel.Size = new System.Drawing.Size(199, 34);
             this.viewFileLabel.TabIndex = 6;
             // 
             // fileDisplayLabel
@@ -112,12 +114,23 @@
             this.fileDisplayLabel.TabIndex = 7;
             this.fileDisplayLabel.Text = "Contents of File:";
             // 
+            // openDialogButton
+            // 
+            this.openDialogButton.Location = new System.Drawing.Point(268, 125);
+            this.openDialogButton.Name = "openDialogButton";
+            this.openDialogButton.Size = new System.Drawing.Size(75, 23);
+            this.openDialogButton.TabIndex = 8;
+            this.openDialogButton.Text = "Open a &File";
+            this.openDialogButton.UseVisualStyleBackColor = true;
+            this.openDialogButton.Click += new System.EventHandler(this.openDialogButton_Click);
+            // 
             // friendFile
             // 
             this.AcceptButton = this.writeNameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 265);
+            this.Controls.Add(this.openDialogButton);
             this.Controls.Add(this.fileDisplayLabel);
             this.Controls.Add(this.viewFileLabel);
             this.Controls.Add(this.openFileButton);
@@ -143,6 +156,8 @@
         private System.Windows.Forms.Button openFileButton;
         private System.Windows.Forms.Label viewFileLabel;
         private System.Windows.Forms.Label fileDisplayLabel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button openDialogButton;
     }
 }
 

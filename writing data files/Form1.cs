@@ -49,6 +49,9 @@ namespace writing_data_files
 
                 //reset focus to nameTextBox
                 nameTextBox.Focus();
+
+                //reset view file label field
+                viewFileLabel.Text = "";
             }
             catch (Exception ex)
             {
@@ -80,6 +83,9 @@ namespace writing_data_files
 
                 //reset focus to nameTextBox
                 nameTextBox.Focus();
+
+                //reset view file label field
+                viewFileLabel.Text = "";
             }
             catch (Exception ex)
             {
@@ -90,7 +96,10 @@ namespace writing_data_files
         private void openFileButton_Click(object sender, EventArgs e)
         {
             try
-            { //declare a variable to hold an item read from the file.
+            { //reset view file label field
+                viewFileLabel.Text = "";
+
+                //declare a variable to hold an item read from the file.
                 string fileData;
 
                 //Declare a StreamReader variable
@@ -116,7 +125,21 @@ namespace writing_data_files
             }
                     
                     }
-        }
+
+        private void openDialogButton_Click(object sender, EventArgs e)
+        {
+            StreamReader inputFile;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                inputFile = File.OpenText(openFileDialog.FileName);
+            }
+            else
+            {
+                MessageBox.Show("You clicked the Cancel Button.");
+            }
+            }
+    }
     }
 
 
