@@ -28,30 +28,35 @@ namespace writing_data_files
             try
             {
                 //declare streamwriter variable named outputFile
-                StreamWriter outputFile; 
+                StreamWriter outputFile;
 
-                //var = method of object with argument of file name. creates file
-                outputFile = File.CreateText("friends.txt");
-                //if passing file location as argument in create method
-                //use outputFile = File.CreateText(@"C:\Users\Tammy\Documents\friends.txt");
+                //test to see if user did not enter a name
+                if (nameTextBox.Text != "")
+                {
+                    //var = method of object with argument of file name. creates file
+                    outputFile = File.CreateText("friends.txt");
+                    //if passing file location as argument in create method
+                    //use outputFile = File.CreateText(@"C:\Users\Tammy\Documents\friends.txt");
 
-                //writes the contents of nameTextBox to file
-                outputFile.WriteLine(nameTextBox.Text);
+                    //writes the contents of nameTextBox to file
+                    outputFile.WriteLine(nameTextBox.Text);
 
-                //close file
-                outputFile.Close();
+                    //close file
+                    outputFile.Close();
 
-                //tell user info
-                MessageBox.Show("The name was written.");
+                    //tell user info
+                    MessageBox.Show("The name was written.");
 
-                //clear text box
-                nameTextBox.Text = "";
+                    //clear text box
+                    nameTextBox.Text = "";
 
-                //reset focus to nameTextBox
-                nameTextBox.Focus();
+                    //reset focus to nameTextBox
+                    nameTextBox.Focus();
 
-                //reset view file label field
-                viewFileLabel.Text = "";
+                    //reset view file label field
+                    viewFileLabel.Text = "";
+                }
+                else { MessageBox.Show("You did not enter a name"); }
             }
             catch (Exception ex)
             {
@@ -66,26 +71,31 @@ namespace writing_data_files
                 //declare streamwriter variable named outputFile
                 StreamWriter outputFile;
 
-                //var = method of object with argument of file name. creates file
-                outputFile = File.AppendText("friends.txt");
+                //test to see if user did not enter a name
+                if (nameTextBox.Text != "")
+                {
+                    //var = method of object with argument of file name. creates file
+                    outputFile = File.AppendText("friends.txt");
 
-                //writes the contents of nameTextBox to file
-                outputFile.WriteLine(nameTextBox.Text);
+                    //writes the contents of nameTextBox to file
+                    outputFile.WriteLine(nameTextBox.Text);
 
-                //close file
-                outputFile.Close();
+                    //close file
+                    outputFile.Close();
 
-                //tell user info
-                MessageBox.Show("The name was written.");
+                    //tell user info
+                    MessageBox.Show("The name was written.");
 
-                //clear text box
-                nameTextBox.Text = "";
+                    //clear text box
+                    nameTextBox.Text = "";
 
-                //reset focus to nameTextBox
-                nameTextBox.Focus();
+                    //reset focus to nameTextBox
+                    nameTextBox.Focus();
 
-                //reset view file label field
-                viewFileLabel.Text = "";
+                    //reset view file label field
+                    viewFileLabel.Text = "";
+                }
+                else { MessageBox.Show("You did not enter a name"); }
             }
             catch (Exception ex)
             {
@@ -128,17 +138,57 @@ namespace writing_data_files
 
         private void openDialogButton_Click(object sender, EventArgs e)
         {
-            StreamReader inputFile;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                inputFile = File.OpenText(openFileDialog.FileName);
+                StreamReader inputFile;
+
+                //open file default directory must use @ to ignore escape sequence \
+                openFileDialog.InitialDirectory = @"C:\Users\tempest\Desktop";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    inputFile = File.OpenText(openFileDialog.FileName);
+
+                    //declare a variable to hold an item read from the file.
+                    string fileData;
+
+                    //loop to read until end of file
+                    while (!inputFile.EndOfStream)
+                    {
+
+                        //read and display the name
+                        fileData = inputFile.ReadLine();
+                        viewFileLabel.Text += " " + fileData;
+                    }
+                    //close the file
+                    inputFile.Close();
+                }
+                else
+                {
+                    MessageBox.Show("You clicked the Cancel Button.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+    private void saveDialogButton_Click(object sender, EventArgs e)
+        {
+            StreamWriter outputFile;
+            saveFileDialog.InitialDirectory = @"C:\Users\tempest\Desktop";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                outputFile = File.CreateText(saveFileDialog.FileName);
             }
             else
             {
-                MessageBox.Show("You clicked the Cancel Button.");
+                MessageBox.Show("You clicked the cancel button");
             }
-            }
+        }
     }
     }
 
